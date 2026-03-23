@@ -22,7 +22,7 @@ export default function App() {
   };
 
   const handleSubmit = async (question) => {
-    if (!document) return alert("Please upload a document first.");
+    // if (!document) return alert("Please upload a document first.");
 
     const requestId = `${Date.now()}-${Math.random().toString(36).slice(2, 7)}`;
     const pendingId = `assistant-pending-${requestId}`;
@@ -61,7 +61,7 @@ export default function App() {
     <div style={{ display: "flex", flexDirection: "column", height: "100vh" }}>
       <DocumentPanel document={document} setDocument={setDocument} />
       <ChatWindow messages={messages} />
-      <PromptInput onSubmit={handleSubmit} disabled={loading || !document} />
+      <PromptInput onSubmit={handleSubmit} />
     </div>
   );
 }
